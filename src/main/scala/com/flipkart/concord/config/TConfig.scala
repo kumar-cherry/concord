@@ -16,16 +16,21 @@ import com.typesafe.config.{Config, ConfigFactory}
 import org.slf4j.LoggerFactory
 import scala.util.Try
 
-
+/**
+ * [[TConfig]] acts as a bridge trait for applications in which config loading can vary
+ * in implementation, while finally producing a [[com.typesafe.config.Config]] instance.
+ * Implementing classes control how / where config is loaded from, but the client interacts
+ * with [[TConfig]] which allows querying via helper methods, once `init` is invoked.
+ */
 trait TConfig {
 
   private val _logger = LoggerFactory.getLogger(getClass)
 
   private var appConfig: Config = ConfigFactory.empty()
 
-  def applyConfig(cfg: Config): Unit = {
-    _logger.info(s"TConfig init with config: $cfg")
-    appConfig = cfg
+  def applyConfig(config: Config): Unit = {
+    appConfig = config
+    _logger.info(s"TConfig init with config: $config")
   }
 
   def get[V](k: String): Option[V] = Try(Some(appConfig.getAnyRef(k).asInstanceOf[V])).getOrElse(None)

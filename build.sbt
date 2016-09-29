@@ -4,7 +4,7 @@ organization := "com.flipkart.connekt"
 
 name := "concord"
 
-version := "0.0.1"
+version := "0.1.0"
 
 scalaVersion := "2.11.8"
 
@@ -26,11 +26,23 @@ pomExtra :=
     </license>
   </licenses>
   <scm>
-    <url>git@github.com:Flipkart/concord.git</url>
+    <url>https://github.com/Flipkart/concord.git</url>
   </scm>
   <developers>
     <developer>
       <id>phantomastray</id>
       <name>Durga Sahoo</name>
     </developer>
+    <developer>
+      <id>kingster</id>
+      <name>Kinshuk Bairagi</name>
+    </developer>
   </developers>
+
+publishTo := {
+  val nexus = "https://oss.sonatype.org/"
+  if (isSnapshot.value)
+    Some("snapshots" at nexus + "content/repositories/snapshots")
+  else
+    Some("releases" at nexus + "service/local/staging/deploy/maven2")
+}
