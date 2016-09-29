@@ -18,6 +18,7 @@ resolvers ++= Seq(
 )
 
 pomExtra :=
+  <url>https://github.com/Flipkart/concord</url>
   <licenses>
     <license>
       <name>MIT License</name>
