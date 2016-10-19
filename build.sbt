@@ -4,7 +4,7 @@ organization := "com.flipkart.connekt"
 
 name := "concord"
 
-version := "0.1.0"
+version := "0.2.0"
 
 scalaVersion := "2.11.8"
 
@@ -40,10 +40,3 @@ pomExtra :=
     </developer>
   </developers>
 
-publishTo := {
-  val nexus = "https://oss.sonatype.org/"
-  if (isSnapshot.value)
-    Some("snapshots" at nexus + "content/repositories/snapshots")
-  else
-    Some("releases" at nexus + "service/local/staging/deploy/maven2")
-}
