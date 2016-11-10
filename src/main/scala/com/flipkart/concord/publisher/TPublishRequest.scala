@@ -9,7 +9,7 @@ trait TPublishRequest {
 trait TPublishRequestMetadata {
   def id: String
 
-  def namespace(): Option[String] = None
+  def namespace(): Option[String]
 
   def requestType: RequestType.Value
 
