@@ -4,13 +4,16 @@ organization := "com.flipkart.connekt"
 
 name := "concord"
 
-version := "0.2.1"
+version := "0.2.2-SNAPSHOT"
 
 scalaVersion := "2.11.8"
+val akkaHttpVersion = "10.0.4"
 
 libraryDependencies ++= Seq(
   "com.typesafe" % "config" % "1.3.0",
-  "org.slf4j" % "slf4j-api" % "1.7.13"
+  "org.slf4j" % "slf4j-api" % "1.7.13",
+  "com.typesafe.akka" %% "akka-http-core" % akkaHttpVersion withSources() withJavadoc(),
+  "com.typesafe.akka" %% "akka-http" % akkaHttpVersion withSources() withJavadoc()
 )
 
 resolvers ++= Seq(
