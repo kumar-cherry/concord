@@ -7,7 +7,6 @@ name := "concord"
 version := "0.2.4-SNAPSHOT"
 
 scalaVersion := "2.11.8"
-val akkaHttpVersion = "10.0.4"
 
 libraryDependencies ++= Seq(
   "com.typesafe" % "config" % "1.3.0",
