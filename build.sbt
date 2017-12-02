@@ -44,7 +44,7 @@ pomExtra :=
 publishTo := {
   val nexus = "https://oss.sonatype.org/"
   if (isSnapshot.value)
-    Some("releases" at "http://10.85.59.116/artifactory/v1.0/artifacts/libs-snapshots-local")
+    Some("snapshots" at nexus + "content/repositories/snapshots")
   else
-    Some("releases" at "http://10.85.59.116/artifactory/v1.0/artifacts/libs-snapshots-local")
+    Some("releases" at nexus + "service/local/staging/deploy/maven2")
 }
