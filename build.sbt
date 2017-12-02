@@ -4,16 +4,14 @@ organization := "com.flipkart.connekt"
 
 name := "concord"
 
-version := "0.2.2-SNAPSHOT"
+version := "0.2.4-SNAPSHOT"
 
 scalaVersion := "2.11.8"
 val akkaHttpVersion = "10.0.4"
 
 libraryDependencies ++= Seq(
   "com.typesafe" % "config" % "1.3.0",
-  "org.slf4j" % "slf4j-api" % "1.7.13",
-  "com.typesafe.akka" %% "akka-http-core" % akkaHttpVersion withSources() withJavadoc(),
-  "com.typesafe.akka" %% "akka-http" % akkaHttpVersion withSources() withJavadoc()
+  "org.slf4j" % "slf4j-api" % "1.7.13"
 )
 
 resolvers ++= Seq(
@@ -46,7 +44,7 @@ pomExtra :=
 publishTo := {
   val nexus = "https://oss.sonatype.org/"
   if (isSnapshot.value)
-    Some("snapshots" at nexus + "content/repositories/snapshots")
+    Some("releases" at "http://10.85.59.116/artifactory/v1.0/artifacts/libs-snapshots-local")
   else
-    Some("releases" at nexus + "service/local/staging/deploy/maven2")
+    Some("releases" at "http://10.85.59.116/artifactory/v1.0/artifacts/libs-snapshots-local")
 }
