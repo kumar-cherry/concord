@@ -2,8 +2,8 @@ package com.flipkart.concord.guardrail
 
 import scala.util.Try
 
-trait TGuardrailService {
-  def isGuarded(entity: AnyRef, meta: Map[String, Any]): Try[Boolean]
+trait TGuardrailService[E, R] {
+  def isGuarded(entity: TGuardrailEntity[E], meta: TGuardrailEntityMetadata): Try[Boolean]
 
-  def guard(entity: AnyRef, meta: Map[String, Any]): Try[AnyRef]
+  def guard(entity: TGuardrailEntity[E], meta: TGuardrailEntityMetadata): Try[TGuardrailResponse[R]]
 }
