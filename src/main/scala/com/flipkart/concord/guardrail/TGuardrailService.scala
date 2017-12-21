@@ -5,5 +5,5 @@ import scala.util.Try
 trait TGuardrailService[E, R] {
   def isGuarded(entity: TGuardrailEntity[E], meta: TGuardrailEntityMetadata): Try[Boolean]
 
-  def guard(entity: TGuardrailEntity[E], meta: TGuardrailEntityMetadata): Try[TGuardrailResponse[R]]
+  def guard(entity: TGuardrailEntity[E], meta: TGuardrailEntityMetadata): TGuardrailResponse[R]
 }
